@@ -74,6 +74,7 @@ int main() {
         // Procesar opcion
 
         switch (opc) {
+
             case 1: {
                 srand(time(0)); // Inicializa con la hora actual (solo una vez)
 
