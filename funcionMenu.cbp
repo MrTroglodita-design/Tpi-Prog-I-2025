@@ -32,10 +32,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="declacionFunciones.h" />
-		<Unit filename="funciones.cpp" />
 		<Unit filename="main.cpp" />
-		<Unit filename="rlutil.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
