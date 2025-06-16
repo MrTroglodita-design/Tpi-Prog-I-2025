@@ -51,7 +51,7 @@ int main() {
         rlutil::setColor(rlutil::YELLOW);
         // Mostrar opciones al usuario
         rlutil::locate(x,y);
-        cout << "===== MENU PRINCIPAL =====" << endl;
+        cout << "===== MENU PRINCIPAL ======" << endl;
         rlutil::locate(x,y+1);
         cout << "1) JUGAR             " << endl;
         rlutil::locate(x,y+2);
