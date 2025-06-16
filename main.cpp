@@ -9,7 +9,7 @@
 using namespace std;
 
 int main() {
-    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8); // Imprime UTF 8
     // ---------------------------------------------------
     // 1) Declaracion de arrays en main
     //    jugador[] guarda nombres de hasta 4 ganadores
@@ -17,6 +17,7 @@ int main() {
     string jugador[4] = {"", "", "", ""};
     int    puntaje[4] = {0, 0, 0, 0};
     int    nEstad     = 0;        // contador de cuantos puestos validos hay
+    int maxHistorico = 0;
 
     // ---------------------------------------------------
     // 2) Variables de control del bucle principal
@@ -76,19 +77,11 @@ int main() {
             case 1: {
                 srand(time(0)); // Inicializa con la hora actual (solo una vez)
 
-                int stock1 = 6;
-                int stock2 = 6;
-                int puntos1 = 0;
-
-
                 // 1) Llamar a juego(): se ejecuta la partida
                 //    y se obtiene nombre del vencedor y su puntaje
-                turnoJugador1(stock1, stock2, puntos1,ganador, puntPartida);
 
-                cout << "\nFin del turno del Jugador 1.\n";
-                cout << "Stock Jugador 1: " << stock1 << endl;
-                cout << "Stock Jugador 2: " << stock2 << endl;
-                cout << "Puntos Jugador 1: " << puntos1 << endl;
+                partidaJuego(ganador, maxHistorico);
+
 
                 // 2) Actualizar ranking TOP 4 en los arrays
                 actualizarEstadisticas(jugador, puntaje, nEstad,

@@ -27,8 +27,8 @@ bool confirmarSalida();
 
 // juego(): ejecuta la partida y devuelve el nombre del vencedor y su puntaje
 ///PARTIDA GENERAL del juego
-//Devuele el resultado final: "Jugador 1 ?GANA!" / "Jugador 2 ?GANA!" / ?Empate!
-string partidaJuego();
+//Devuele el resultado final: "Jugador 1 ?GANA!" / "Jugador 2 ?GANA!" / ?Empate! y almacena al jugador que tuvo el mayor puntaje historico
+void partidaJuego(string &ganador, int &maxHistorico);
 
 ///Tirar dados (Seis caras)
 int tirarDadoSeis();
@@ -38,15 +38,16 @@ int tirarDadoDoce();
 
 ///RONDA del juego
 //Determina quien juega
-void rondaJuego (int &dadosStockJugadorUno, int &dadosStockJugadorDos, int &puntosJugadorUno, int &puntosJugadorDos);
+void rondaJuego (int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, int p1dados, int p2dados, string jugador1, string jugador2);
 
 ///RONDA de Jugador 1
 //Modifica stock y puntos
-void turnoJugador1(int &dadosStockJugadorUno, int &dadosStockJugadorDos, int &puntosJugadorUno, string &ganador, int &puntajePartida);
+void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, string jugador1);
 
 ///RONDA de Jugador 2
 //Modifica stock y puntos
-void turnoJugador2(int &dadosStockJugadorDos, int &dadosStockJugadorUno, int &puntosJugadorDos, string &ganador, int &puntajePartida);
+void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, string jugador2);
+
 
 
 
