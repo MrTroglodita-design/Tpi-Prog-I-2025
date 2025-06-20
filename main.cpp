@@ -27,8 +27,6 @@ int main() {
 
     // ---------------------------------------------------
     // 3) Bucle principal del menu
-    int x = 35;
-    int y = 13;
 
     while (!salir) {
         rlutil::cls();
@@ -36,8 +34,6 @@ int main() {
         rlutil::setBackgroundColor(rlutil::BLACK);
         rlutil::setColor(rlutil::YELLOW);
 
-        rlutil::locate(0,0);
-        cout << endl;
         cout << "███████╗███╗   ██╗███████╗██████╗ ███████╗███╗   ██╗██████╗  █████╗ ██████╗  ██████╗ ███████╗" << endl;
         cout << "██╔════╝████╗  ██║██╔════╝██╔══██╗██╔════╝████╗  ██║██╔══██╗██╔══██╗██╔══██╗██╔═══██╗██╔════╝" << endl;
         rlutil::setColor(rlutil::WHITE);
@@ -47,24 +43,18 @@ int main() {
         cout << "███████╗██║ ╚████║██║     ██║  ██║███████╗██║ ╚████║██████╔╝██║  ██║██████╔╝╚██████╔╝███████║" << endl;
         cout << "╚══════╝╚═╝  ╚═══╝╚═╝     ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚══════╝" << endl;
         rlutil::setColor(rlutil::WHITE);
-        cout << endl << "Bienvenidos a Enfrendados, un juego en el que interviene el azar y las matematicas. ¡Suerte!";
+        cout << endl << "Bienvenidos a Enfrendados, un juego en el que interviene el azar y las matematicas. ¡Suerte!" << endl;
 
         rlutil::setColor(rlutil::YELLOW);
         // Mostrar opciones al usuario
-        rlutil::locate(x,y);
-        cout << "===== MENU PRINCIPAL =====" << endl;
-        rlutil::locate(x,y+1);
+        cout << "\n========================" << endl;
         cout << "1) JUGAR             " << endl;
-        rlutil::locate(x,y+2);
         cout << "2) ESTADÍSTICAS      " << endl;
-        rlutil::locate(x,y+3);
         cout << "3) CRÉDITOS          " << endl;
-        rlutil::locate(x,y+4);
         cout << "==========================" << endl;
-        rlutil::locate(x,y+5);
-        cout << "0) SALIR"        << endl << endl;
-        rlutil::locate(0,y+7);
-        cout << "=> Elige tu opción: ";
+        cout << "0) SALIR" << endl;
+        rlutil::setColor(rlutil::WHITE);
+        cout << "\n=> Elige tu opción: ";
         rlutil::resetColor();
 
 

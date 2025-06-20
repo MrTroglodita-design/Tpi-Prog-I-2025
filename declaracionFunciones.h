@@ -42,11 +42,11 @@ void rondaJuego (int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, int p
 
 ///RONDA de Jugador 1
 //Modifica stock y puntos
-void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, string jugador1);
+void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, string jugador1, string jugador2);
 
 ///RONDA de Jugador 2
 //Modifica stock y puntos
-void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, string jugador2);
+void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, string jugador2, string jugador1);
 
 
 
