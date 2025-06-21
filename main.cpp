@@ -9,13 +9,12 @@
 using namespace std;
 
 int main() {
-    SetConsoleOutputCP(CP_UTF8); // Imprime UTF 8
+    SetConsoleOutputCP(CP_UTF8); // Imprime UTF 8 en Windows
     // ---------------------------------------------------
     // 1) Declaracion de arrays en main
-    //    jugador[] guarda nombres de hasta 4 ganadores
-    //    puntaje[] guarda puntajes correspondientes
-    string jugador[4] = {"", "", "", ""};
-    int    puntaje[4] = {0, 0, 0, 0};
+
+    string jugador[4] = {"", "", "", ""};  //    jugador[] guarda nombres de hasta 4 ganadores
+    int    puntaje[4] = {0, 0, 0, 0};   //    puntaje[] guarda puntajes correspondientes
     int    nEstad     = 0;        // contador de cuantos puestos validos hay
     int maxHistorico = 0;
 
@@ -47,7 +46,7 @@ int main() {
 
         rlutil::setColor(rlutil::YELLOW);
         // Mostrar opciones al usuario
-        cout << "\n========================" << endl;
+        cout << "\n=========================="<< endl;
         cout << "1) JUGAR             " << endl;
         cout << "2) ESTADÍSTICAS      " << endl;
         cout << "3) CRÉDITOS          " << endl;
@@ -68,15 +67,12 @@ int main() {
             case 1: {
                 srand(time(0)); // Inicializa con la hora actual (solo una vez)
 
-                // 1) Llamar a juego(): se ejecuta la partida
-                //    y se obtiene nombre del vencedor y su puntaje
+                // 1) Llamar a partidaJuego(): se ejecuta la partida y se obtiene nombre del vencedor y su puntaje
 
                 partidaJuego(ganador, maxHistorico);
 
-
                 // 2) Actualizar ranking TOP 4 en los arrays
-                actualizarEstadisticas(jugador, puntaje, nEstad,
-                                       ganador, puntPartida);
+                actualizarEstadisticas(jugador, puntaje, nEstad, ganador, puntPartida);
 
                 cout << "\nPresiona una tecla para volver al menú principal...";
                 rlutil::anykey();
@@ -112,7 +108,7 @@ int main() {
     }
 
     // Mensaje final antes de terminar programa
-    cout << "Hasta la proxima!" << endl;
+    cout << "¡Hasta la proxima!" << endl;
 
 
 

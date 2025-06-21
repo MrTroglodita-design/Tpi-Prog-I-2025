@@ -6,16 +6,10 @@ using namespace std;
 //Prototipos de funciones
 ///MENU
 // actualizarEstadisticas(): inserta un nuevo resultado en el ranking TOP‑4
-void actualizarEstadisticas(string jugador[4],
-                            int    puntaje[4],
-                            int&   nEstad,
-                            const string& nombreNuevo,
-                            int    puntajeNuevo);
+void actualizarEstadisticas(string jugador[4], int puntaje[4], int& nEstad, const string& nombreNuevo, int puntajeNuevo);
 
 // mostrarEstadisticas(): muestra por pantalla el ranking TOP‑4 actual
-void mostrarEstadisticas(const string jugador[4],
-                         const int    puntaje[4],
-                         int          nEstad);
+void mostrarEstadisticas(const string jugador[4], const int puntaje[4], int nEstad);
 
 // creditos(): imprime los apellidos, nombres, legajos y nombre de equipo
 void creditos();
@@ -25,10 +19,13 @@ bool confirmarSalida();
 
 //---------------------------------------------------------------
 
-// juego(): ejecuta la partida y devuelve el nombre del vencedor y su puntaje
 ///PARTIDA GENERAL del juego
+// juego(): ejecuta la partida y devuelve el nombre del vencedor y su puntaje
 //Devuele el resultado final: "Jugador 1 ?GANA!" / "Jugador 2 ?GANA!" / ?Empate! y almacena al jugador que tuvo el mayor puntaje historico
 void partidaJuego(string &ganador, int &maxHistorico);
+
+///Dibujo de dados
+void dibujarDados(int dado);
 
 ///Tirar dados (Seis caras)
 int tirarDadoSeis();
