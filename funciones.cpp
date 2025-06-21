@@ -1,4 +1,5 @@
 #include <string>
+#include <windows.h>
 #include <iomanip>
 #include "rlutil.h"
 #include "declaracionFunciones.h"
@@ -78,7 +79,7 @@ void partidaJuego(string &ganador, int &maxHistorico){
 
    ///Se piden los nombres de cada jugador
    string jugador1, jugador2;
-   int x = 34;
+   int x = 36;
    int y = 3;
    cout << "Ingrese el nombre del Jugador/a 1: " << endl;
    rlutil::locate(x,y);
@@ -174,8 +175,8 @@ void partidaJuego(string &ganador, int &maxHistorico){
       cout << endl << "\n¡Empate!";
         rlutil::setBackgroundColor(rlutil::BLACK);
         rlutil::setColor(rlutil::WHITE);
-      cout << endl << jugador1 << " finalizó con: " << stockP1 << " dados stock y " << puntosP1 << " puntos." << endl;
-      cout << endl << jugador2 << " finalizó con: " << stockP2 << " dados stock y " << puntosP2 << " puntos." << endl;
+      cout << endl << "\n" << jugador1 << " finalizó con: " << stockP1 << " dados stock y " << puntosP1 << " puntos." << endl;
+      cout << endl <<  "\n" << jugador2 << " finalizó con: " << stockP2 << " dados stock y " << puntosP2 << " puntos." << endl;
       return;
     }
 
@@ -186,8 +187,8 @@ void partidaJuego(string &ganador, int &maxHistorico){
         cout << endl << "\n¡" << jugador1 << " es el/la ganador/a!";
         rlutil::setBackgroundColor(rlutil::BLACK);
         rlutil::setColor(rlutil::WHITE);
-        cout << endl << jugador1 << " finalizó con: " << stockP1 << " dados stock y " << puntosP1 << " puntos." << endl;
-        cout << endl << jugador2 << " finalizó con: " << stockP2 << " dados stock y " << puntosP2 << " puntos." << endl;
+        cout << endl <<  "\n" << jugador1 << " finalizó con: " << stockP1 << " dados stock y " << puntosP1 << " puntos." << endl;
+        cout << endl <<  "\n" << jugador2 << " finalizó con: " << stockP2 << " dados stock y " << puntosP2 << " puntos." << endl;
         return;
     }
 
@@ -198,8 +199,8 @@ void partidaJuego(string &ganador, int &maxHistorico){
         cout << endl << "\n¡" << jugador2 << " es el/la ganadora!";
         rlutil::setBackgroundColor(rlutil::BLACK);
         rlutil::setColor(rlutil::WHITE);
-        cout << endl << jugador2 << " finalizó con: " << stockP2 << " dados stock y " << puntosP2 << " puntos." << endl;
-        cout << endl << jugador1 << " finalizó con: " << stockP1 << " dados stock y " << puntosP1 << " puntos." << endl;
+        cout << endl << "\n" <<  jugador2 << " finalizó con: " << stockP2 << " dados stock y " << puntosP2 << " puntos." << endl;
+        cout << endl <<  "\n" << jugador1 << " finalizó con: " << stockP1 << " dados stock y " << puntosP1 << " puntos." << endl;
         return;
     }
 }
@@ -301,11 +302,13 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
 
             if (eleccion == -1) {
                 cout << "\nRonda finalizada por el jugador, no suma puntos." << endl;
+                Beep(300, 500);
                 break;
             }
 
             if (eleccion < 0 || eleccion >= stockP1 || dadosTotP1[eleccion] == 0){
                 cout << "Dado ya elegido o fuera de rango de selección." << endl;
+                Beep(300, 500);
                 continue;
             }
 
@@ -358,6 +361,7 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
                 rlutil::setBackgroundColor(rlutil::YELLOW);
                 rlutil::setColor(rlutil::BLACK);
                 cout << endl << "Sufres una PENALIZACIÓN por elegir mal tus dados y NO sumarás puntos." << endl;
+                Beep(300, 500);
                 rlutil::setBackgroundColor(rlutil::BLACK);
                 rlutil::setColor(rlutil::WHITE);
                 break;
@@ -376,6 +380,7 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
         }
         rlutil::msleep(1000);
         cout << endl<< "\nNo es posible llegar al numero objetivo con tus dados." << endl;
+        Beep(300, 500);
         if (stockP1 > 1){
             for(int i = 0; i < stockP1; i++){
             cout << dadosTotP1[i];
@@ -393,12 +398,14 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
 
         if (stockP2 > 1){
             cout << "\n" << jugador2 << " pierde un dado y " << jugador1 << " recibe uno por penalización." << endl;
+            Beep(300, 500);
             stockP2--;
             stockP1++;
-            return;
+
         }
         else {
-            return;
+            cout << "\n" << jugador1 << " no puede perder más dados (solo tiene 1). No se aplica penalización." << endl;
+
             }
     }
 
@@ -414,6 +421,7 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
     } else if (sumaStock > numObjetivo) {
         cout << endl;
         cout << jugador2 << " pierde un dado y " << jugador1 << " recibe uno por penalización." << endl;
+        Beep(300, 500);
         if (stockP2 > 1) {
             stockP2--;
             stockP1++;
@@ -510,11 +518,13 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
 
             if (eleccion == -1) {
                 cout << "\nRonda finalizada por el jugador, no suma puntos." << endl;
+                Beep(300, 500);
                 break;
             }
 
             if (eleccion < 0 || eleccion >= stockP2 || dadosTotP2[eleccion] == 0){
                 cout << "Dado ya elegido o fuera de rango de selección." << endl;
+                Beep(300, 500);
                 continue;
             }
 
@@ -566,6 +576,7 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
                 rlutil::setBackgroundColor(rlutil::YELLOW);
                 rlutil::setColor(rlutil::BLACK);
                 cout << endl << "Sufres una PENALIZACIÓN por elegir mal tus dados y NO sumarás puntos." << endl;
+                Beep(300, 500);
                 rlutil::setBackgroundColor(rlutil::BLACK);
                 rlutil::setColor(rlutil::WHITE);
                 break;
@@ -584,6 +595,7 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
         }
         rlutil::msleep(1000);
         cout << endl<< "\nNo es posible llegar al numero objetivo con tus dados." << endl;
+        Beep(300, 500);
         if (stockP2 > 1){
             for(int i = 0; i < stockP2; i++){
             cout << dadosTotP2[i];
@@ -597,16 +609,17 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
             cout << dadosTotP2[i];
          }
         }
-         cout << " = " << corte << endl;
 
         if (stockP1 > 1){
             cout << "\n" << jugador1 << " pierde un dado y " << jugador2 << " recibe uno por penalización." << endl;
+            Beep(300, 500);
             stockP1--;
             stockP2++;
-            return;
+
         }
         else {
-            return;
+            cout << "\n" << jugador1 << " no puede perder más dados (solo tiene 1). No se aplica penalización." << endl;
+
             }
     }
 
@@ -622,6 +635,7 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
     } else if (sumaStock > numObjetivo) {
         cout << endl;
         cout << jugador1 << " pierde un dado y " << jugador2 << " recibe uno por penalización." << endl;
+        Beep(300, 500);
         if (stockP1 > 1) {
             stockP1--;
             stockP2++;
@@ -716,13 +730,13 @@ void mostrarEstadisticas(const string jugador[4],const int puntaje[4],int nEstad
 // Imprime apellidos, nombres, legajos de los integrantes y nombre de equipo
 // ------------------------------------------------------------------------
 void creditos() {
-    cout << "===== CREDITOS =====" << endl;
-    cout << "EQUIPO ------" << endl;
+    cout << "================= CREDITOS ===============" << endl;
+    cout << "----- EQUIPO ------" << endl;
     cout << "* Camila Ariadna Gamboa (Legajo: 32347)"     << endl;
-    cout << "* Santiago sosa  (Legajo:32544)"             << endl;
+    cout << "* Santiago Sosa  (Legajo:32544)"             << endl;
     cout << "* Agustin Juarez (Legajo:33205) "            << endl;
     cout << "* Avila Reina Juan Esteban (Legajo: 32887)"  << endl;
-    cout << "===================="                        << endl;
+    cout << "=========================================="  << endl;
 }
 
 // ------------------------------------------------------------------------
@@ -740,7 +754,7 @@ bool confirmarSalida() {
     do {
         cout << "Seguro que deseas salir? (s/n): ";
         cin >> r;
-        // Normalizar a minúscula
+        // pasar a minúscula
         r = tolower(r);
         if (r != 's' && r != 'n') {
             cout << "Entrada invalida. Por favor ingresa 's' o 'n'." << endl;
@@ -749,3 +763,5 @@ bool confirmarSalida() {
 
     return (r == 's');
 }
+
+

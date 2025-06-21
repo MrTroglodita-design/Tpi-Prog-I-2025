@@ -33,8 +33,9 @@
 	"rlutil.h"
 	"declaracionFunciones.h"
 
-1750529597 source:e:\utn\tpi-prog-i-2025\funciones.cpp
+1750545786 source:e:\utn\tpi-prog-i-2025\funciones.cpp
 	<string>
+	<windows.h>
 	<iomanip>
 	"rlutil.h"
 	"declaracionFunciones.h"
@@ -53,11 +54,12 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1750542645 e:\utn\tpi-prog-i-2025\declaracionfunciones.h
+1750545822 e:\utn\tpi-prog-i-2025\declaracionfunciones.h
 	<vector>
 	<string>
+	<windows.h>
 
-1750532218 source:e:\utn\tpi-prog-i-2025\main.cpp
+1750545741 source:e:\utn\tpi-prog-i-2025\main.cpp
 	<string>
 	<windows.h>
 	<iomanip>

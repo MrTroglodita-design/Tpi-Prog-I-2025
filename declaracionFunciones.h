@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <windows.h>
 
 using namespace std;
 //Prototipos de funciones
@@ -16,6 +17,8 @@ void creditos();
 
 // confirmarSalida(): pide confirmacion al usuario y devuelve true si confirma salir
 bool confirmarSalida();
+
+
 
 //---------------------------------------------------------------
 

@@ -96,6 +96,8 @@ int main() {
                 // Preguntar confirmacion de salida
                 if (confirmarSalida())
                     salir = true;
+                    // Mensaje final antes de terminar programa
+                    cout << "\n¡HASTA LA PRÓXIMA!" << endl;
                 break;
 
             default:
@@ -106,11 +108,6 @@ int main() {
                 break;
         }
     }
-
-    // Mensaje final antes de terminar programa
-    cout << "¡Hasta la proxima!" << endl;
-
-
 
 
     return 0;
