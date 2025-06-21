@@ -165,7 +165,7 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
     cout << endl;
 
     // Se tiran los dados de 6 caras del jugador 1
-    int dadosTotP1[20] = {}; // vector
+    int dadosTotP1[12] = {}; // vector hasta 12 elementos como maximo
 
     for (int i = 0; i < stockP1; i++) {
         dadosTotP1[i] = tirarDadoSeis();
@@ -316,7 +316,7 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
     cout << endl;
 
     // Se tiran los dados de 6 caras del jugador 1
-    int dadosTotP2[20] = {}; // vector
+    int dadosTotP2[12] = {}; // vector hasta 12 elementos como maximo
 
     for (int i = 0; i < stockP2; i++) {
         dadosTotP2[i] = tirarDadoSeis();
@@ -374,6 +374,7 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
 
             if (sumaStock == numObjetivo){ //TIRADA EXITOSA
                 cout << endl << "TIRADA EXITOSA!" << endl;
+                cout << "\nSumaste los siguientes dados: ";
                 for (int i = 0; i < cantidadSeleccionados; i++) {
                     cout << dadosSeleccionados[i];
                     if (i != cantidadSeleccionados - 1) { //Si no es el ultimo dado seleccionado
