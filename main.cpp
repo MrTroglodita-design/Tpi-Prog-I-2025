@@ -13,10 +13,10 @@ int main() {
     // ---------------------------------------------------
     // 1) Declaracion de arrays en main
 
-    string jugador[4] = {"", "", "", ""};  //    jugador[] guarda nombres de hasta 4 ganadores
-    int    puntaje[4] = {0, 0, 0, 0};   //    puntaje[] guarda puntajes correspondientes
-    int    nEstad     = 0;        // contador de cuantos puestos validos hay
-    int maxHistorico = 0;
+    string jugadores[4] = {"", "", "", ""};  //    jugador[] guarda nombres de hasta 4 ganadores
+    int    puntajes[4] = {};   //    puntaje[] guarda puntajes correspondientes
+    int    numEstadisticas = 0;        // contador de cuantos puestos validos hay
+
 
     // ---------------------------------------------------
     // 2) Variables de control del bucle principal
@@ -69,10 +69,10 @@ int main() {
 
                 // 1) Llamar a partidaJuego(): se ejecuta la partida y se obtiene nombre del vencedor y su puntaje
 
-                partidaJuego(ganador, maxHistorico);
+                partidaJuego(jugadores, puntajes, numEstadisticas);
 
                 // 2) Actualizar ranking TOP 4 en los arrays
-                actualizarEstadisticas(jugador, puntaje, nEstad, ganador, puntPartida);
+                actualizarEstadisticas(jugadores, puntajes, numEstadisticas, ganador, puntPartida);
 
                 cout << "\nPresiona una tecla para volver al menú principal...";
                 rlutil::anykey();
@@ -80,7 +80,7 @@ int main() {
             }
             case 2:
                 // Mostrar el TOP 4 actual
-                mostrarEstadisticas(jugador, puntaje, nEstad);
+                mostrarEstadisticas(jugadores, puntajes, numEstadisticas);
                 cout << "\nPresiona una tecla para volver al menú principal...";
                 rlutil::anykey();
                 break;
