@@ -467,7 +467,7 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
    rlutil::setColor(rlutil::YELLOW);
    cout << "\nFin del turno de " << jugador1 << endl;
    cout << endl << "=> "<< jugador1 << ": " << stockP1 << " dados stock restantes y " << puntosP1 << " pts." << endl;
-   cout << endl << "=> "<< jugador2 << ": " << stockP2 << " dados stock." << endl;
+   cout << endl << "=> "<< jugador2 << ": " << stockP2 << " dados stock restantes y " << puntosP2 << " pts." << endl;
 
     // Pausa para ver el resumen
     rlutil::hidecursor();
@@ -708,7 +708,7 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
    rlutil::setColor(rlutil::YELLOW);
    cout << "\nFin del turno de " << jugador2 << endl;
    cout << endl << "=> "<< jugador2<< ": " << stockP2 << " dados stock restantes y " << puntosP2 << " pts." << endl;
-   cout << endl << "=> "<< jugador1 << ": " << stockP1 << " dados stock." << endl;
+   cout << endl << "=> "<< jugador1 << ": " << stockP1 << " dados stock restantes y " << puntosP1 << " pts." << endl;
 
     // Pausa para ver el resumen
     rlutil::hidecursor();
