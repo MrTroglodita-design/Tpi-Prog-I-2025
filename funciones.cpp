@@ -77,6 +77,7 @@ void partidaJuego(string jugadores[4], int puntajes[4], int &numEstadisticas){
     rlutil::setBackgroundColor(rlutil::BLACK);
     rlutil::setColor(rlutil::WHITE);
 
+    rlutil::showcursor();
    ///Se piden los nombres de cada jugador
    string jugador1, jugador2;
    int x = 36;
@@ -307,7 +308,6 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
             if (eleccion == -1) {
                 rlutil::setColor(rlutil::RED);
                 cout << "\nRonda finalizada por el jugador, no suma puntos." << endl;
-                rlutil::resetColor();
                 Beep(300, 500);
                 break;
             }
@@ -316,7 +316,6 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
             if (eleccion < 0 || eleccion >= stockP1 || dadosTotP1[eleccion] == 0){
                 rlutil::setColor(rlutil::RED);
                 cout << "Dado ya elegido o fuera de rango de selección." << endl;
-                rlutil::resetColor();
                 Beep(300, 500);
                 continue;
             }
@@ -333,7 +332,7 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
             //Imprime en pantalla lo que va eligiendo y su suma
             cout <<"\nElegiste: ";
             for (int i = 0; i < cantidadSeleccionados; i++) {
-                    if (cantidadSeleccionados == -1){ //Si elige 0 para finalizar la ronda no imprime nada
+                    if (eleccion == -1){ //Si elige 0 para finalizar la ronda no imprime nada
                         break;
                     }
                     cout << dadosSeleccionados[i]; //Imprime el valor del dado
@@ -351,7 +350,7 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
 
                 rlutil::setBackgroundColor(rlutil::YELLOW);
                 rlutil::setColor(rlutil::BLACK);
-                cout << endl << "¡TIRADA EXITOSA!" << endl;  //Imprime el mensaje
+                cout << endl << "¡TIRADA EXITOSA!";  //Imprime el mensaje
 
                 rlutil::setBackgroundColor(rlutil::BLACK);
                 rlutil::setColor(rlutil::WHITE);
@@ -368,6 +367,7 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
             }
             //Si la suma de los dados elegidos es mayor al numero objetivo ocurre la penalizacion
             if (sumaStock > numObjetivo){  ///PENALIZACIÓN
+                rlutil::setBackgroundColor(rlutil::BLACK);
                 rlutil::setColor(rlutil::RED);
                 cout << endl << "Sufres una PENALIZACIÓN por elegir mal tus dados y NO sumarás puntos." << endl;
                 Beep(300, 500);
@@ -387,17 +387,20 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
                 cout << "[" << i+1 << "]:" << dadosTotP1[i] << "  ";
             }
         }
-        //Muestra el mensaje de que no es posible llegar al numero objetivo
+        ///Muestra el mensaje de que no es posible llegar al numero objetivo
         rlutil::msleep(1000);
+        rlutil::setBackgroundColor(rlutil::BLACK);
         rlutil::setColor(rlutil::RED);
         cout << endl<< "\nNo es posible llegar al numero objetivo con tus dados." << endl;
-        rlutil::resetColor();
+        cout << endl;
+        rlutil::setBackgroundColor(rlutil::BLACK);
+        rlutil::setColor(rlutil::WHITE);
         Beep(300, 500);
         //Muestra la suma de esos valores
         if (stockP1 > 1){
             for(int i = 0; i < stockP1; i++){
             cout << dadosTotP1[i];
-            if (i < 5){
+            if (i < stockP1-1){
               cout << " + ";
             }
         }
@@ -413,7 +416,6 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
             rlutil::setBackgroundColor(rlutil::BLACK);
             rlutil::setColor(rlutil::RED);
             cout << "\n" << jugador2 << " pierde un dado y " << jugador1 << " recibe uno por penalización." << endl;
-            rlutil::resetColor();
             Beep(300, 500);
             stockP2--;
             stockP1++;
@@ -423,7 +425,6 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
             rlutil::setBackgroundColor(rlutil::BLACK);
             rlutil::setColor(rlutil::RED);
             cout << "\n" << jugador2 << " no puede perder más dados (solo tiene 1). No se aplica penalización." << endl;
-            rlutil::resetColor();
 
             }
     }
@@ -445,13 +446,12 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
         rlutil::setBackgroundColor(rlutil::BLACK);
         rlutil::setColor(rlutil::RED);
         cout << jugador2 << " pierde un dado y " << jugador1 << " recibe uno por penalización." << endl;
-        rlutil::resetColor();
         Beep(300, 500);
         if (stockP2 > 1) {
             stockP2--;
             stockP1++;
         }
-        return;
+
     }
     rlutil::msleep(700);
     rlutil::setBackgroundColor(rlutil::BLACK);
@@ -482,7 +482,7 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
 }
 
 void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, string jugador2, string jugador1){
-    // Se tiran los dos dados de 12 caras para obtener el n£mero de Dados Objetivo
+      // Se tiran los dos dados de 12 caras para obtener el n£mero de Dados Objetivo
     rlutil::setBackgroundColor(rlutil::BLACK);
     rlutil::setColor(rlutil::WHITE);
     cout << "\n-------------------------------------------------------" << endl;
@@ -549,7 +549,6 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
             if (eleccion == -1) {
                 rlutil::setColor(rlutil::RED);
                 cout << "\nRonda finalizada por el jugador, no suma puntos." << endl;
-                rlutil::resetColor();
                 Beep(300, 500);
                 break;
             }
@@ -558,12 +557,12 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
             if (eleccion < 0 || eleccion >= stockP2 || dadosTotP2[eleccion] == 0){
                 rlutil::setColor(rlutil::RED);
                 cout << "Dado ya elegido o fuera de rango de selección." << endl;
-                rlutil::resetColor();
                 Beep(300, 500);
                 continue;
             }
 
-            //Guardar el valor del dado seleccionado para ir mostrandolo en cada elección
+
+             //Guardar el valor del dado seleccionado para ir mostrandolo en cada elección
             dadosSeleccionados[cantidadSeleccionados] = dadosTotP2[eleccion];
             cantidadSeleccionados++;
             sumaDadosSeleccionados += dadosTotP2[eleccion];
@@ -571,11 +570,10 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
             sumaStock += dadosTotP2[eleccion];  //Suma los valores de los dados elegidos y los almacena en sumaStock
             dadosTotP2[eleccion] = 0;           //Cada dado elegido lo iguala a 0 para que no aparezcan nuevamente
             sumaDados++;                        //Contador de la cantidad de dados elegidos
-
             //Imprime en pantalla lo que va eligiendo y su suma
             cout <<"\nElegiste: ";
             for (int i = 0; i < cantidadSeleccionados; i++) {
-                    if (cantidadSeleccionados == -1){ //Si elige 0 para finalizar la ronda no imprime nada
+                    if (eleccion == -1){ //Si elige 0 para finalizar la ronda no imprime nada
                         break;
                     }
                     cout << dadosSeleccionados[i]; //Imprime el valor del dado
@@ -593,7 +591,7 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
 
                 rlutil::setBackgroundColor(rlutil::YELLOW);
                 rlutil::setColor(rlutil::BLACK);
-                cout << endl << "¡TIRADA EXITOSA!" << endl;  //Imprime el mensaje
+                cout << endl << "¡TIRADA EXITOSA!";  //Imprime el mensaje
 
                 rlutil::setBackgroundColor(rlutil::BLACK);
                 rlutil::setColor(rlutil::WHITE);
@@ -610,6 +608,7 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
             }
             //Si la suma de los dados elegidos es mayor al numero objetivo ocurre la penalizacion
             if (sumaStock > numObjetivo){  ///PENALIZACIÓN
+                rlutil::setBackgroundColor(rlutil::BLACK);
                 rlutil::setColor(rlutil::RED);
                 cout << endl << "Sufres una PENALIZACIÓN por elegir mal tus dados y NO sumarás puntos." << endl;
                 Beep(300, 500);
@@ -622,7 +621,6 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
     } else { ///Si la tirada de 6 dados no fue exitosa, es decir es menor al numero objetivo
         //Muestra dados
         rlutil::msleep(500);
-        rlutil::setBackgroundColor(rlutil::BLACK);
         rlutil::setColor(rlutil::YELLOW);
         cout << "Tus dados: ";
         for (int i = 0; i < stockP2; i++) {
@@ -630,19 +628,20 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
                 cout << "[" << i+1 << "]:" << dadosTotP2[i] << "  ";
             }
         }
-        //Muestra el mensaje de que no es posible llegar al numero objetivo
+        ///Muestra el mensaje de que no es posible llegar al numero objetivo
         rlutil::msleep(1000);
         rlutil::setBackgroundColor(rlutil::BLACK);
         rlutil::setColor(rlutil::RED);
         cout << endl<< "\nNo es posible llegar al numero objetivo con tus dados." << endl;
         cout << endl;
+        rlutil::setBackgroundColor(rlutil::BLACK);
         rlutil::setColor(rlutil::WHITE);
         Beep(300, 500);
         //Muestra la suma de esos valores
         if (stockP2 > 1){
             for(int i = 0; i < stockP2; i++){
             cout << dadosTotP2[i];
-            if (i < 5){
+            if (i < stockP2-1){
               cout << " + ";
             }
         }
@@ -658,7 +657,6 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
             rlutil::setBackgroundColor(rlutil::BLACK);
             rlutil::setColor(rlutil::RED);
             cout << "\n" << jugador1 << " pierde un dado y " << jugador2 << " recibe uno por penalización." << endl;
-            rlutil::resetColor();
             Beep(300, 500);
             stockP1--;
             stockP2++;
@@ -668,7 +666,6 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
             rlutil::setBackgroundColor(rlutil::BLACK);
             rlutil::setColor(rlutil::RED);
             cout << "\n" << jugador1 << " no puede perder más dados (solo tiene 1). No se aplica penalización." << endl;
-            rlutil::resetColor();
 
             }
     }
@@ -690,13 +687,12 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
         rlutil::setBackgroundColor(rlutil::BLACK);
         rlutil::setColor(rlutil::RED);
         cout << jugador1 << " pierde un dado y " << jugador2 << " recibe uno por penalización." << endl;
-        rlutil::resetColor();
         Beep(300, 500);
         if (stockP1 > 1) {
             stockP1--;
             stockP2++;
         }
-        return;
+
     }
     rlutil::msleep(700);
     rlutil::setBackgroundColor(rlutil::BLACK);
@@ -711,7 +707,7 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
    cout << "\n● Transfiere " << sumaDados << " dados a " << jugador1 << endl;
    rlutil::setColor(rlutil::YELLOW);
    cout << "\nFin del turno de " << jugador2 << endl;
-   cout << endl << "=> "<< jugador2 << ": " << stockP2 << " dados stock restantes y " << puntosP2 << " pts." << endl;
+   cout << endl << "=> "<< jugador2<< ": " << stockP2 << " dados stock restantes y " << puntosP2 << " pts." << endl;
    cout << endl << "=> "<< jugador1 << ": " << stockP1 << " dados stock." << endl;
 
     // Pausa para ver el resumen
