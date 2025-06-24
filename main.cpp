@@ -10,7 +10,7 @@ using namespace std;
 
 int main() {
     SetConsoleOutputCP(CP_UTF8); // Imprime UTF 8 en Windows
-
+    srand(time(0)); // Inicializa con la hora actual (solo una vez)
     // ---------------------------------------------------
     // 2) Variables de control del bucle principal
     bool   salir      = false;    // controla salida del menu
@@ -57,7 +57,7 @@ int main() {
         switch (opc) {
 
             case 1: {
-                srand(time(0)); // Inicializa con la hora actual (solo una vez)
+
 
                 // 1) Llamar a partidaJuego(): se ejecuta la partida y se obtiene nombre del vencedor y su puntaje
 

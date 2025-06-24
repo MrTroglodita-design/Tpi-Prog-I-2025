@@ -23,12 +23,12 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1750724916 c:\users\agus\documents\_cursos\utn-tup\01_programacion\i\tpi-prog-i-2025-git\tpi-prog-i-2025\declaracionfunciones.h
+1750796645 c:\users\agus\documents\_cursos\utn-tup\01_programacion\i\tpi-prog-i-2025-git\tpi-prog-i-2025\declaracionfunciones.h
 	<vector>
 	<string>
 	<windows.h>
 
-1750724922 source:c:\users\agus\documents\_cursos\utn-tup\01_programacion\i\tpi-prog-i-2025-git\tpi-prog-i-2025\funciones.cpp
+1750796396 source:c:\users\agus\documents\_cursos\utn-tup\01_programacion\i\tpi-prog-i-2025-git\tpi-prog-i-2025\funciones.cpp
 	<string>
 	<windows.h>
 	<iomanip>

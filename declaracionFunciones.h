@@ -7,7 +7,7 @@ using namespace std;
 //Prototipos de funciones
 ///MENU
 
-// mostrarEstadisticas(): muestra por pantalla el ranking TOP‑4 actual
+// mostrarEstadisticas(): muestra por pantalla el ranking
 void mostrarEstadisticas(string ganador, int maxHistorico);
 
 // creditos(): imprime los apellidos, nombres, legajos y nombre de equipo
@@ -51,7 +51,6 @@ void mensajeEmpate();
 //mensaje de espera
 void mensajeEspera();
 
-void mostrarEstadisticas();
 
 
 
