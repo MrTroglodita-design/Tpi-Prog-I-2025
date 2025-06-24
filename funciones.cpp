@@ -393,6 +393,7 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
          sumaStock += dadosTotP1[eleccion];  //Suma los valores de los dados elegidos y los almacena en sumaStock
          dadosTotP1[eleccion] = 0;           //Cada dado elegido lo iguala a 0 para que no aparezcan nuevamente
          sumaDados++;                        //Contador de la cantidad de dados elegidos
+
          //Imprime en pantalla lo que va eligiendo y su suma
 
          rlutil::setColor(rlutil::LIGHTBLUE);
@@ -400,9 +401,6 @@ void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, str
          rlutil::setColor(rlutil::GREEN);
          cout <<"\nElegiste: ";
          for (int i = 0; i < cantidadSeleccionados; i++) {
-                 if (eleccion == -1){ //Si elige 0 para finalizar la ronda no imprime nada
-                     break;
-                 }
                  cout << dadosSeleccionados[i]; //Imprime el valor del dado
                  if (i != cantidadSeleccionados - 1) { //Si no es el ultimo dado seleccionado
                          cout << " + ";                //Imprime +
@@ -619,9 +617,6 @@ void turnoJugador2(int &stockP2, int &stockP1, int &puntosP2, int &puntosP1, str
          rlutil::setColor(rlutil::GREEN);
          cout <<"\nElegiste: ";
          for (int i = 0; i < cantidadSeleccionados; i++) {
-                 if (eleccion == -1){ //Si elige 0 para finalizar la ronda no imprime nada
-                     break;
-                 }
                  cout << dadosSeleccionados[i]; //Imprime el valor del dado
                  if (i != cantidadSeleccionados - 1) { //Si no es el ultimo dado seleccionado
                          cout << " + ";                //Imprime +
