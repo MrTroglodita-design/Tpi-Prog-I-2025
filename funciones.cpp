@@ -801,14 +801,11 @@ void mostrarEstadisticas(string ganador, int maxHistorico){
     cout << "             __|_______|__"    << endl;
     cout << "            |~~~~~~~~~~~~~|"    << endl;
 
-
+    rlutil::setBackgroundColor(rlutil::BLACK);
     rlutil::setColor(rlutil::YELLOW);
     cout << "\n============ Campeón histórico ============  " << endl
          << "             " << ganador << ": " << maxHistorico << " pts"
          << endl;
-
-
-    return;
     }
     else {
          cout << "    .    _    +     .  ______   .          ." << endl;
