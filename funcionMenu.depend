@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1750114471 source:c:\users\agus\documents\_cursos\utn-tup\01_programacion\i\tpi-prog-i-2025-git\tpi-prog-i-2025\main.cpp
+1750724967 source:c:\users\agus\documents\_cursos\utn-tup\01_programacion\i\tpi-prog-i-2025-git\tpi-prog-i-2025\main.cpp
 	<string>
 	<windows.h>
 	<iomanip>
@@ -23,12 +23,14 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1750116037 c:\users\agus\documents\_cursos\utn-tup\01_programacion\i\tpi-prog-i-2025-git\tpi-prog-i-2025\declaracionfunciones.h
+1750724916 c:\users\agus\documents\_cursos\utn-tup\01_programacion\i\tpi-prog-i-2025-git\tpi-prog-i-2025\declaracionfunciones.h
 	<vector>
 	<string>
+	<windows.h>
 
-1750116326 source:c:\users\agus\documents\_cursos\utn-tup\01_programacion\i\tpi-prog-i-2025-git\tpi-prog-i-2025\funciones.cpp
+1750724922 source:c:\users\agus\documents\_cursos\utn-tup\01_programacion\i\tpi-prog-i-2025-git\tpi-prog-i-2025\funciones.cpp
 	<string>
+	<windows.h>
 	<iomanip>
 	"rlutil.h"
 	"declaracionFunciones.h"

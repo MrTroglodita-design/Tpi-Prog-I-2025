@@ -10,20 +10,13 @@ using namespace std;
 
 int main() {
     SetConsoleOutputCP(CP_UTF8); // Imprime UTF 8 en Windows
-    // ---------------------------------------------------
-    // 1) Declaracion de arrays en main
-
-    string jugadores[4] = {"", "", "", ""};  //    jugador[] guarda nombres de hasta 4 ganadores
-    int    puntajes[4] = {};   //    puntaje[] guarda puntajes correspondientes
-    int    numEstadisticas = 0;        // contador de cuantos puestos validos hay
-
 
     // ---------------------------------------------------
     // 2) Variables de control del bucle principal
     bool   salir      = false;    // controla salida del menu
     string ganador;               // nombre del ganador de la ultima partida
     int    puntPartida;           // puntaje obtenido en la ultima partida
-
+    int maxHistorico = 0;
     // ---------------------------------------------------
     // 3) Bucle principal del menu
 
@@ -69,18 +62,16 @@ int main() {
 
                 // 1) Llamar a partidaJuego(): se ejecuta la partida y se obtiene nombre del vencedor y su puntaje
 
-                partidaJuego(jugadores, puntajes, numEstadisticas);
-
-                // 2) Actualizar ranking TOP 4 en los arrays
-                actualizarEstadisticas(jugadores, puntajes, numEstadisticas, ganador, puntPartida);
+                partidaJuego(ganador, maxHistorico);
 
                 cout << "\nPresiona una tecla para volver al menú principal...";
                 rlutil::anykey();
                 break;
             }
             case 2:
-                // Mostrar el TOP 4 actual
-                mostrarEstadisticas(jugadores, puntajes, numEstadisticas);
+                // Mostrar el TOP actual
+               mostrarEstadisticas(ganador, maxHistorico);
+
                 cout << "\nPresiona una tecla para volver al menú principal...";
                 rlutil::anykey();
                 break;

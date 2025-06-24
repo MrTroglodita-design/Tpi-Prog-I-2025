@@ -6,11 +6,9 @@
 using namespace std;
 //Prototipos de funciones
 ///MENU
-// actualizarEstadisticas(): inserta un nuevo resultado en el ranking TOP‑4
-void actualizarEstadisticas(string jugador[4], int puntaje[4], int& numEstadisticas, const string& nombreNuevo, int puntajeNuevo);
 
 // mostrarEstadisticas(): muestra por pantalla el ranking TOP‑4 actual
-void mostrarEstadisticas(const string jugador[4], const int puntaje[4], int numEstadisticas);
+void mostrarEstadisticas(string ganador, int maxHistorico);
 
 // creditos(): imprime los apellidos, nombres, legajos y nombre de equipo
 void creditos();
@@ -23,7 +21,7 @@ bool confirmarSalida();
 ///PARTIDA GENERAL del juego
 // juego(): ejecuta la partida y devuelve el nombre del vencedor y su puntaje
 //Devuele el resultado final: "Jugador 1 ?GANA!" / "Jugador 2 ?GANA!" / ?Empate! y almacena al jugador que tuvo el mayor puntaje historico
-void partidaJuego(string jugadores[4], int puntajes[4], int &numEstadisticas);
+void partidaJuego(string& ganador, int& maxHistorico);
 
 ///Dibujo de dados
 void dibujarDados(int dado);
@@ -38,7 +36,7 @@ int tirarDadoDoce();
 //Determina quien juega
 void rondaJuego (int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, int p1dados, int p2dados, string jugador1, string jugador2);
 
-///RONDA de Jugador 1
+///RONDA de Jugador
 //Modifica stock y puntos
 void turnoJugador1(int &stockP1, int &stockP2, int &puntosP1, int &puntosP2, string jugador1, string jugador2);
 
@@ -53,8 +51,7 @@ void mensajeEmpate();
 //mensaje de espera
 void mensajeEspera();
 
-
-
+void mostrarEstadisticas();
 
 
 
