@@ -22,7 +22,6 @@ int main() {
 
     while (!salir) {
         rlutil::cls();
-
         rlutil::setBackgroundColor(rlutil::BLACK);
         rlutil::setColor(rlutil::YELLOW);
 

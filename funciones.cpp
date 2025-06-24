@@ -807,6 +807,7 @@ void mostrarEstadisticas(string ganador, int maxHistorico){
          << "             " << ganador << ": " << maxHistorico << " pts"
          << endl;
 
+
     return;
     }
     else {
