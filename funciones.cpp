@@ -190,7 +190,7 @@ void partidaJuego(string &ganador, int &maxHistorico){
         //Llamamos a la funcion rondaJuego
         rondaJuego(stockP1, stockP2, puntosP1, puntosP2, p1dados6, p2dados6, jugador1, jugador2);
 
-    } while(turno < 3 && stockP1 != 0 && stockP2 != 0 && puntosP1 < 10000 && puntosP2 < 10000); //Condiciones de corte
+    } while(turno < 3 && stockP1 != 0 && stockP2 != 0 ); //Condiciones de corte
         rlutil::cls();
 
 

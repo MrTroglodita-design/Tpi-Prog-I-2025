@@ -71,3 +71,38 @@
 	<cctype>
 	"declaracionFunciones.h"
 
+1750805330 source:c:\users\jeavila\desktop\programacion en c++\version defintiva\tpi-prog-i-2025\funciones.cpp
+	<string>
+	<windows.h>
+	<iomanip>
+	"rlutil.h"
+	"declaracionFunciones.h"
+
+1750801288 c:\users\jeavila\desktop\programacion en c++\version defintiva\tpi-prog-i-2025\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1750810645 c:\users\jeavila\desktop\programacion en c++\version defintiva\tpi-prog-i-2025\declaracionfunciones.h
+	<string>
+	<windows.h>
+
+1750801288 source:c:\users\jeavila\desktop\programacion en c++\version defintiva\tpi-prog-i-2025\main.cpp
+	<string>
+	<windows.h>
+	<iomanip>
+	<cstdlib>
+	<ctime>
+	"rlutil.h"
+	<cctype>
+	"declaracionFunciones.h"
+
